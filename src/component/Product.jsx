@@ -1,19 +1,19 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, removeItem } from "../redux/slice/cartSlice";
-  import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 
 function Product({ items }) {
   const { cart } = useSelector((state) => state);
-  console.log(cart)
   const dispatch = useDispatch();
   const addToCart = () => {
     dispatch(addItem(items));
-    toast("Item Added")
+    toast.success("Item Added")
   };
 
   const removeFromCart = () => {
     dispatch(removeItem(items.id));
+    toast.error("Item Removed");
   };
 
   return (

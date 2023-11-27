@@ -2,11 +2,13 @@ import React from 'react'
 import { AiFillDelete } from "react-icons/ai";
 import { useDispatch } from 'react-redux';
 import {  removeItem } from '../redux/slice/cartSlice';
+import { toast } from "react-hot-toast";
 
 const CartItem = ({ item, itemIndex }) => {
   const dispatch = useDispatch()
   const removeFromCart = () => {
-     dispatch(removeItem(item.id));
+    dispatch(removeItem(item.id));
+    toast.error("Item Removed");
   }
   return (
     <div className="flex items-center p-2 md:p-5 justify-between   mt-2 mb-2 md:mx-5 ">
